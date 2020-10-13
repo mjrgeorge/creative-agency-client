@@ -11,6 +11,7 @@ import AddAdmin from './components/adminPages/addAdmin/AddAdmin';
 import AddServices from './components/adminPages/addServices/AddServices';
 import ServicesList from './components/adminPages/servicesList/ServicesList';
 import ClientPages from './components/clientPages/ClientPages';
+import ClientOrder from './components/clientPages/clientOrder/ClientOrder';
 
 function App() {
   return (
@@ -22,17 +23,20 @@ function App() {
         <Route path="/login">
           <Login/>
         </Route>
-        <Route path="/admin/addAdmin">
+        <Route path="/addAdmin">
           <AddAdmin/>
         </Route>
-        <Route path="/admin/addServices">
+        <Route path="/addServices">
           <AddServices/>
         </Route>
-        <Route path="/admin/servicesList">
+        <Route path="/servicesList">
           <ServicesList/>
         </Route>
         <Route path="/client">
           <ClientPages/>
+        </Route>
+        <Route path="/clientOrder">
+          <ClientOrder/>
         </Route>
         <Route exact path="/">
           <Home/>

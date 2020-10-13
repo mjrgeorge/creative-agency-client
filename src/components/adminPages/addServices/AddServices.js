@@ -28,10 +28,10 @@ const AddServices = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className="text-right">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
                         </form>
-                        <div className="text-right">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
                     </div>
                 </div>
             </div>
