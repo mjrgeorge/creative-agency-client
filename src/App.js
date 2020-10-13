@@ -7,6 +7,7 @@ import {
 import Home from './components/home/home/Home';
 import NotMatch from './components/notMatch/NotMatch';
 import Login from './components/login/Login';
+import AdminPages from './components/adminPages/AdminPages';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login/>
+        </Route>
+        <Route path="/admin">
+          <AdminPages/>
         </Route>
         <Route exact path="/">
           <Home/>
