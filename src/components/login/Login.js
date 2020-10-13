@@ -1,12 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import logo from '../../images/logos/logo.png';
 import google from '../../images/google.png';
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from './firebaseConfig';
+import { UserContext } from '../../App';
+import { useState } from 'react';
+
+firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-    const handleSignIn = () => {
-        console.log('button click');
-    }
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [user, setUser] = useState({
+        isSignedIn: false,
+        name: "",
+        email: "",
+        photo: "",
+        error: "",
+    });
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const handleSignIn =()=>{
+        firebase.auth().signInWithPopup(provider)
+        .then(result => {
+            const {displayName, email, photoURL} = result.user;
+            const signedInUser = {
+                isSignedIn: true,
+                name: displayName,
+                email: email,
+                photo: photoURL
+            }
+            setUser(signedInUser);
+            setLoggedInUser(signedInUser);
+            history.replace(from);
+          })
+          .catch(error => {
+            const errorMessage = error.message;
+            setUser({error:errorMessage});
+          });
+    };
     return (
         <div className="container bg-light pt-5">
             <Link to="/home">
@@ -22,7 +60,7 @@ const Login = () => {
                         Continue with Google
                     </button>
                     <p>Don't have an account? <Link to="#">Create an account</Link></p>
-                    <p className="text-danger">error message show</p>
+                    <p className="text-danger">{user.error}</p>
                 </div>
             </div>
         </div>

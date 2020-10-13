@@ -14,46 +14,54 @@ import ClientPages from './components/clientPages/ClientPages';
 import ClientOrder from './components/clientPages/clientOrder/ClientOrder';
 import OrderReview from './components/clientPages/orderReview/OrderReview';
 import ClientFeedback from './components/clientPages/clientFeedback/ClientFeedback';
+import { createContext } from 'react';
+import { useState } from 'react';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <Router>
-      <Switch>
-        <Route path="/home">
-          <Home/>
-        </Route>
-        <Route path="/login">
-          <Login/>
-        </Route>
-        <Route path="/addAdmin">
-          <AddAdmin/>
-        </Route>
-        <Route path="/addServices">
-          <AddServices/>
-        </Route>
-        <Route path="/servicesList">
-          <ServicesList/>
-        </Route>
-        <Route path="/client">
-          <ClientPages/>
-        </Route>
-        <Route path="/clientOrder">
-          <ClientOrder/>
-        </Route>
-        <Route path="/clientFeedback">
-          <ClientFeedback/>
-        </Route>
-        <Route path="/orderReview">
-          <OrderReview/>
-        </Route>
-        <Route exact path="/">
-          <Home/>
-        </Route>
-        <Route path="*">
-          <NotMatch/>
-        </Route>
-      </Switch>
-    </Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute path="/addAdmin">
+            <AddAdmin />
+          </PrivateRoute>
+          <PrivateRoute path="/addServices">
+            <AddServices />
+          </PrivateRoute>
+          <PrivateRoute path="/servicesList">
+            <ServicesList />
+          </PrivateRoute>
+          <PrivateRoute path="/client">
+            <ClientPages />
+          </PrivateRoute>
+          <PrivateRoute path="/clientOrder">
+            <ClientOrder />
+          </PrivateRoute>
+          <PrivateRoute path="/clientFeedback">
+            <ClientFeedback />
+          </PrivateRoute>
+          <PrivateRoute path="/orderReview">
+            <OrderReview />
+          </PrivateRoute>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="*">
+            <NotMatch />
+          </Route>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
