@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from '../../images/logos/logo.png';
 import { Link } from 'react-router-dom';
-import AddServices from './addServices/AddServices';
 
 const AdminPages = () => {
     return (

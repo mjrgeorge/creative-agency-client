@@ -14,11 +14,11 @@ const AddServices = () => {
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label>Service Title</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" placeholder="Enter Title" />
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <textarea class="form-control" placeholder="Enter Description" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
@@ -30,7 +30,7 @@ const AddServices = () => {
                             </div>
                         </form>
                         <div className="text-right">
-                            <button type="submit" class="btn btn-success">Sign in</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>
                 </div>

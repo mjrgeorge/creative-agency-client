@@ -7,7 +7,9 @@ import {
 import Home from './components/home/home/Home';
 import NotMatch from './components/notMatch/NotMatch';
 import Login from './components/login/Login';
+import AddAdmin from './components/adminPages/addAdmin/AddAdmin';
 import AddServices from './components/adminPages/addServices/AddServices';
+import ServicesList from './components/adminPages/servicesList/ServicesList';
 
 function App() {
   return (
@@ -19,8 +21,14 @@ function App() {
         <Route path="/login">
           <Login/>
         </Route>
-        <Route path="/admin">
+        <Route path="/admin/addAdmin">
+          <AddAdmin/>
+        </Route>
+        <Route path="/admin/addServices">
           <AddServices/>
+        </Route>
+        <Route path="/admin/servicesList">
+          <ServicesList/>
         </Route>
         <Route exact path="/">
           <Home/>
