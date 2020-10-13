@@ -6,16 +6,20 @@ import {
 } from "react-router-dom";
 import Home from './components/home/home/Home';
 import NotMatch from './components/notMatch/NotMatch';
+import Login from './components/login/Login';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/home">
-          <Home />
+          <Home/>
+        </Route>
+        <Route path="/login">
+          <Login/>
         </Route>
         <Route exact path="/">
-          <Home />
+          <Home/>
         </Route>
         <Route path="*">
           <NotMatch/>

@@ -10,29 +10,29 @@ const OurWorks = () => {
             <h2 className="text-white pt-5">Here are some of <span style={{ color: '#7AB259' }}>our works</span></h2>
             <div className="pb-5">
                 <div id="carouselExampleIndicators" className="carousel slide pb-5" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
-                    <div class="carousel-inner p-5">
-                        <div class="carousel-item active">
-                            <img style={{height:'300px', width:'50%'}} src={carousel1} class="img-fluid" alt="carousel1" />
+                    <div className="carousel-inner p-5">
+                        <div className="carousel-item active">
+                            <img style={{height:'300px', width:'50%'}} src={carousel1} className="img-fluid" alt="carousel1" />
                         </div>
-                        <div class="carousel-item">
-                            <img style={{height:'300px', width:'50%'}} src={carousel2} class="img-fluid" alt="carousel1" />
+                        <div className="carousel-item">
+                            <img style={{height:'300px', width:'50%'}} src={carousel2} className="img-fluid" alt="carousel1" />
                         </div>
-                        <div class="carousel-item">
-                            <img style={{height:'300px', width:'50%'}} src={carousel3} class="img-fluid" alt="carousel1" />
+                        <div className="carousel-item">
+                            <img style={{height:'300px', width:'50%'}} src={carousel3} className="img-fluid" alt="carousel1" />
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Next</span>
                     </a>
                 </div>
             </div>
