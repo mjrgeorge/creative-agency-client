@@ -12,7 +12,8 @@ import AddServices from './components/adminPages/addServices/AddServices';
 import ServicesList from './components/adminPages/servicesList/ServicesList';
 import ClientPages from './components/clientPages/ClientPages';
 import ClientOrder from './components/clientPages/clientOrder/ClientOrder';
-import ClientReview from './components/clientPages/clientReview/ClientReview';
+import OrderReview from './components/clientPages/orderReview/OrderReview';
+import ClientFeedback from './components/clientPages/clientFeedback/ClientFeedback';
 
 function App() {
   return (
@@ -39,8 +40,11 @@ function App() {
         <Route path="/clientOrder">
           <ClientOrder/>
         </Route>
-        <Route path="/clientReview">
-          <ClientReview/>
+        <Route path="/clientFeedback">
+          <ClientFeedback/>
+        </Route>
+        <Route path="/orderReview">
+          <OrderReview/>
         </Route>
         <Route exact path="/">
           <Home/>

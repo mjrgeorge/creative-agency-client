@@ -1,13 +1,13 @@
 import React from 'react';
 import ClientPages from '../ClientPages';
 
-const ClientReview = () => {
+const ClientFeedback = () => {
     return (
         <div className="container bg-light">
             <div className="row">
                 <ClientPages />
                 <div className="col-md-10">
-                    <h3 className="mt-5 ml-5 p-4">Order</h3>
+                    <h3 className="mt-5 ml-5 p-4">Feedback</h3>
                     <div className="bg-white p-5 rounded">
                         <form>
                             <div className="row">
@@ -36,4 +36,4 @@ const ClientReview = () => {
     );
 };
 
-export default ClientReview;
+export default ClientFeedback;
