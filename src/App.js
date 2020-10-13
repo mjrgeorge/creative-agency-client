@@ -10,6 +10,7 @@ import Login from './components/login/Login';
 import AddAdmin from './components/adminPages/addAdmin/AddAdmin';
 import AddServices from './components/adminPages/addServices/AddServices';
 import ServicesList from './components/adminPages/servicesList/ServicesList';
+import ClientPages from './components/clientPages/ClientPages';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/admin/servicesList">
           <ServicesList/>
+        </Route>
+        <Route path="/client">
+          <ClientPages/>
         </Route>
         <Route exact path="/">
           <Home/>
