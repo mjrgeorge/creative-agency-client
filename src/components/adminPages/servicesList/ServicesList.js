@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AdminPages from '../AdminPages';
 
 const ServicesList = () => {
@@ -27,9 +28,9 @@ const ServicesList = () => {
                                         Dropdown button
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Done</a>
-                                        <a class="dropdown-item" href="#">Ongoing</a>
-                                        <a class="dropdown-item" href="#">Pending</a>
+                                        <Link class="dropdown-item" to="#">Done</Link>
+                                        <Link class="dropdown-item" to="#">Ongoing</Link>
+                                        <Link class="dropdown-item" to="#">Pending</Link>
                                     </div>
                                 </div>
                             </div>

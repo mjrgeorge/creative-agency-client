@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './components/home/home/Home';
 import NotMatch from './components/notMatch/NotMatch';
 import Login from './components/login/Login';
 import AddAdmin from './components/adminPages/addAdmin/AddAdmin';
 import AddServices from './components/adminPages/addServices/AddServices';
 import ServicesList from './components/adminPages/servicesList/ServicesList';
-import ClientPages from './components/clientPages/ClientPages';
 import ClientOrder from './components/clientPages/clientOrder/ClientOrder';
 import OrderReview from './components/clientPages/orderReview/OrderReview';
 import ClientFeedback from './components/clientPages/clientFeedback/ClientFeedback';
@@ -40,9 +35,6 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/servicesList">
             <ServicesList />
-          </PrivateRoute>
-          <PrivateRoute path="/client">
-            <ClientPages />
           </PrivateRoute>
           <PrivateRoute path="/clientOrder">
             <ClientOrder />
