@@ -1,7 +1,7 @@
 import React from 'react';
 import ClientPages from '../ClientPages';
 
-const ClientOrder = () => {
+const ClientReview = () => {
     return (
         <div className="container bg-light">
             <div className="row">
@@ -13,30 +13,19 @@ const ClientOrder = () => {
                             <div className="row">
                                 <div className="col-md-7">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your name / company's name" />
+                                        <input type="text" class="form-control" placeholder="Your name" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your email address" />
+                                        <input type="text" class="form-control" placeholder="Company's name Designation" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="services" />
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control" placeholder="Project details" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="Price" />
-                                        </div>
-                                        <div class="col">
-                                            <input type="file" class="form-control-file" />
-                                        </div>
+                                        <textarea class="form-control" placeholder="Description" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div className="col-md-5">
                                 </div>
                             </div>
-                            <div className="text-left mt-3">
+                            <div className="text-left mt-2">
                                 <button type="submit" class="btn btn-dark">Submit</button>
                             </div>
                         </form>
@@ -47,4 +36,4 @@ const ClientOrder = () => {
     );
 };
 
-export default ClientOrder;
+export default ClientReview;

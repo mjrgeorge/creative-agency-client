@@ -12,6 +12,7 @@ import AddServices from './components/adminPages/addServices/AddServices';
 import ServicesList from './components/adminPages/servicesList/ServicesList';
 import ClientPages from './components/clientPages/ClientPages';
 import ClientOrder from './components/clientPages/clientOrder/ClientOrder';
+import ClientReview from './components/clientPages/clientReview/ClientReview';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path="/clientOrder">
           <ClientOrder/>
+        </Route>
+        <Route path="/clientReview">
+          <ClientReview/>
         </Route>
         <Route exact path="/">
           <Home/>
