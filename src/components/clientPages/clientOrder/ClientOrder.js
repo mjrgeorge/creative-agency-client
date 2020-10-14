@@ -32,8 +32,6 @@ const ClientOrder = () => {
         formData.append('details', info.details);
         formData.append('price', info.price);
 
-        console.log({formData});
-
         fetch('http://localhost:5000/addOrder', {
             method: 'POST',
             body: formData
