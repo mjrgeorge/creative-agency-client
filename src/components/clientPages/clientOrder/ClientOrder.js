@@ -1,7 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { UserContext } from '../../../App';
 import ClientPages from '../ClientPages';
 
 const ClientOrder = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {serviceName} = useParams();
+    console.log(serviceName);
+    console.log(loggedInUser);
+
     return (
         <div className="container bg-light">
             <div className="row">
@@ -13,13 +21,13 @@ const ClientOrder = () => {
                             <div className="row">
                                 <div className="col-md-7">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your name / company's name" />
+                                        <input type="text" class="form-control" defaultValue={loggedInUser.name} placeholder="Your name / company's name" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your email address" />
+                                        <input type="email" class="form-control" defaultValue={loggedInUser.email} placeholder="Your email address" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="services" />
+                                        <input type="text" class="form-control" defaultValue={serviceName} placeholder="services" />
                                     </div>
                                     <div class="form-group">
                                         <textarea class="form-control" placeholder="Project details" rows="3"></textarea>

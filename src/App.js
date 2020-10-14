@@ -36,7 +36,7 @@ function App() {
           <Route path="/servicesList">
             <ServicesList />
           </Route>
-          <Route path="/clientOrder">
+          <Route path="/clientOrder/:serviceName">
             <ClientOrder />
           </Route>
           <Route path="/clientFeedback">
@@ -54,7 +54,7 @@ function App() {
           <PrivateRoute path="/servicesList">
             <ServicesList />
           </PrivateRoute>
-          <PrivateRoute path="/clientOrder">
+          <PrivateRoute path="/clientOrder/:serviceName">
             <ClientOrder />
           </PrivateRoute>
           <PrivateRoute path="/clientFeedback">
