@@ -12,16 +12,16 @@ const Contact = () => {
                     <div className="col-md-6 mt-5 p-5">
                         <form action="">
                             <div className="form-group">
-                                <input type="email" className="form-control" placeholder="Your email address" />
+                                <input type="email" className="form-control" placeholder="Your email address" required/>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Your name / company's name" />
+                                <input type="text" className="form-control" placeholder="Your name / company's name" required/>
                             </div>
                             <div className="form-group">
-                                <textarea name="" className="form-control" cols="30" rows="10" placeholder="Your message"></textarea>
+                                <textarea name="" className="form-control" cols="30" rows="10" placeholder="Your message" required></textarea>
                             </div>
                             <div className="form-group">
-                                <button type="button" className="btn btn-dark px-5"> Send </button>
+                                <button type="submit" className="btn btn-dark px-5"> Send </button>
                             </div>
                         </form>
                     </div>

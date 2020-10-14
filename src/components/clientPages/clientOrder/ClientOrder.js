@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
@@ -6,9 +7,45 @@ import ClientPages from '../ClientPages';
 
 const ClientOrder = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const {serviceName} = useParams();
-    console.log(serviceName);
-    console.log(loggedInUser);
+    const { serviceName } = useParams();
+
+    const [info, setInfo] = useState({});
+    const [file, setFile] = useState(null);
+
+    const handleBlur = (e) => {
+        const newInfo = { ...info };
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
+    };
+
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
+    };
+
+    const handleSubmit = () => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('name', info.name);
+        formData.append('email', info.email);
+        formData.append('service', info.service);
+        formData.append('details', info.details);
+        formData.append('price', info.price);
+
+        console.log({formData});
+
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    };
 
     return (
         <div className="container bg-light">
@@ -17,27 +54,27 @@ const ClientOrder = () => {
                 <div className="col-md-10">
                     <h3 className="mt-5 ml-5 p-4">Order</h3>
                     <div className="bg-white p-5 rounded">
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="row">
                                 <div className="col-md-7">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" defaultValue={loggedInUser.name} placeholder="Your name / company's name" />
+                                        <input onBlur={handleBlur} type="text" name="name" class="form-control" defaultValue={loggedInUser.name} placeholder="Your name / company's name" required/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" defaultValue={loggedInUser.email} placeholder="Your email address" />
+                                        <input onBlur={handleBlur} type="email" email="email" class="form-control" defaultValue={loggedInUser.email} placeholder="Your email address" required/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" defaultValue={serviceName} placeholder="services" />
+                                        <input onBlur={handleBlur} type="text" name="service" class="form-control" defaultValue={serviceName} placeholder="service" required/>
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Project details" rows="3"></textarea>
+                                        <textarea onBlur={handleBlur} name="details" class="form-control" placeholder="Project details" rows="3" required></textarea>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Price" />
+                                            <input onBlur={handleBlur} type="text" name="price" class="form-control" placeholder="Price" required/>
                                         </div>
                                         <div class="col">
-                                            <input type="file" class="form-control-file" />
+                                            <input onChange={handleFileChange} type="file" class="form-control-file" required/>
                                         </div>
                                     </div>
                                 </div>

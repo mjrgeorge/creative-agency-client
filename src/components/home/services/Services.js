@@ -4,7 +4,6 @@ import { useState } from 'react';
 import ServiceDetails from '../serviceDetails/ServiceDetails';
 
 const Services = () => {
-
     const [services, setServices] = useState([]);
     useEffect(()=>{
         fetch('http://localhost:5000/services')

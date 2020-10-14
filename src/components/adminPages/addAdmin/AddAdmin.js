@@ -12,7 +12,7 @@ const AddAdmin = () => {
                         <form>
                             <label>Email</label>
                             <div class="input-group mb-3 w-75">
-                                <input type="text" class="form-control" placeholder="jon@gmail.com"/>
+                                <input type="text" class="form-control" placeholder="jon@gmail.com" required/>
                                 <div class="input-group-append">
                                     <button class="btn btn-success" type="submit">Submit</button>
                                 </div>

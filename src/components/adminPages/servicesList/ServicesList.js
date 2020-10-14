@@ -1,8 +1,19 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminPages from '../AdminPages';
 
 const ServicesList = () => {
+
+    const [orders, setOrders] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/orders')
+        .then(response => response.json())
+        .then(data =>setOrders(data))
+        .catch(err => console.log(err))
+    }, []);
+
     return (
         <div className="container bg-light">
             <div className="row">
