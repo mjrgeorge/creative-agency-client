@@ -4,29 +4,28 @@ import customer2 from '../../../images/customer-2.png';
 import customer3 from '../../../images/customer-3.png';
 import FeedBack from '../feedBack/FeedBack';
 
-
-const feedbackData = [
-    {
-        comment : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
-        name : 'Nash Patrik',
-        company : 'CEO, Manpol',
-        img : customer1
-    },
-    {
-        comment : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
-        name : 'Miriam Barron',
-        company : 'CEO, Manpol',
-        img : customer2
-    },
-    {
-        comment : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
-        name : 'Bria Malone',
-        company : 'CEO, Manpol',
-        img : customer3
-    }
-]
-
 const FeedBacks = () => {
+    
+    const feedbackData = [
+        {
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
+            name : 'Nash Patrik',
+            company : 'CEO, Manpol',
+            img : customer1
+        },
+        {
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
+            name : 'Miriam Barron',
+            company : 'CEO, Manpol',
+            img : customer2
+        },
+        {
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
+            name : 'Bria Malone',
+            company : 'CEO, Manpol',
+            img : customer3
+        }
+    ]
     return (
        <section className="my-5 py-5">
            <div className="container">

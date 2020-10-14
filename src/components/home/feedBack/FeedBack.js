@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FeedBack = (props) => {
-    const {comment,name,company ,img} = props.feedback;
+    const {description, name, company, img} = props.feedback;
     return (
         <div className="card pt-4">
             <div className="card-header d-flex  align-items-center" style={{backgroundColor: 'transparent', borderColor: 'transparent'}}>
@@ -12,7 +12,7 @@ const FeedBack = (props) => {
                 </div>
             </div>
             <div className="card-body">
-                <p style={{color: 'rgba(0, 0, 0, 0.7)' }}>{comment}</p>
+                <p style={{color: 'rgba(0, 0, 0, 0.7)' }}>{description}</p>
             </div>
        </div>
     );

@@ -7,19 +7,17 @@ const AddServices = () => {
      const [file, setFile] = useState(null);
 
     const handleBlur = (e) => {
-        console.log(e.target.name, e.target.value);
         const newInfo = {...info};
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo);
-    }
+    };
 
     const handleFileChange = (e) => {
         const newFile = e.target.files[0];
         setFile(newFile);
-    }
-    console.log(info);
+    };
 
-    const handleSubmit = event => {
+    const handleSubmit = () => {
         const formData = new FormData();
         formData.append('file', file);
         formData.append('service', info.service);
@@ -36,7 +34,7 @@ const AddServices = () => {
         .catch(error => {
           console.error(error)
         })
-      }
+      };
 
     return (
         <div className="container bg-light">
