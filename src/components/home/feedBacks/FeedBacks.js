@@ -1,44 +1,29 @@
-import React from 'react';
-import customer1 from '../../../images/customer-1.png';
-import customer2 from '../../../images/customer-2.png';
-import customer3 from '../../../images/customer-3.png';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import FeedBack from '../feedBack/FeedBack';
 
 const FeedBacks = () => {
-    
-    const feedbackData = [
-        {
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
-            name : 'Nash Patrik',
-            company : 'CEO, Manpol',
-            img : customer1
-        },
-        {
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
-            name : 'Miriam Barron',
-            company : 'CEO, Manpol',
-            img : customer2
-        },
-        {
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium! ',
-            name : 'Bria Malone',
-            company : 'CEO, Manpol',
-            img : customer3
-        }
-    ]
+    const [feedbacks, setFeedbacks] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/feedbacks')
+            .then(response => response.json())
+            .then(data => setFeedbacks(data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
-       <section className="my-5 py-5">
-           <div className="container">
-               <div>
-               <h2 className="m-3 text-center"style={{ color: '#171B4E' }}>Clients <span style={{ color: '#7AB259' }}>Feedback</span></h2>
-               </div>
-               <div className="card-deck mt-5">
+        <section className="my-5 py-5">
+            <div className="container">
+                <div>
+                    <h2 className="m-3 text-center" style={{ color: '#171B4E' }}>Clients <span style={{ color: '#7AB259' }}>Feedback</span></h2>
+                </div>
+                <div className=" row card-deck mt-5">
                     {
-                        feedbackData.map(feedback => <FeedBack feedback={feedback} key={feedback.name}/>)
+                        feedbacks.map(feedback => <FeedBack feedback={feedback} key={feedback._id} />)
                     }
                 </div>
-           </div>
-       </section>
+            </div>
+        </section>
     );
 };
 
