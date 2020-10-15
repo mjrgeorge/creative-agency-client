@@ -7,7 +7,7 @@ const OrderReview = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [orderedService, setOrderedService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orderedService?email=' + loggedInUser.email)
+        fetch('https://tranquil-beach-35378.herokuapp.com/orderedService?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setOrderedService(data))
             .catch(err => console.log(err))

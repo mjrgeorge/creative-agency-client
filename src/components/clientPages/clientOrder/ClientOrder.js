@@ -25,7 +25,7 @@ const ClientOrder = () => {
         formData.append('service', data.service);
         formData.append('details', data.details);
         formData.append('price', data.price);
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://tranquil-beach-35378.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })

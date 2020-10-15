@@ -5,7 +5,7 @@ import FeedBack from '../feedBack/FeedBack';
 const FeedBacks = () => {
     const [feedbacks, setFeedbacks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/feedbacks')
+        fetch('https://tranquil-beach-35378.herokuapp.com/feedbacks')
             .then(response => response.json())
             .then(data => setFeedbacks(data))
             .catch(err => console.log(err))

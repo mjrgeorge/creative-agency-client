@@ -11,7 +11,7 @@ const AddAdmin = () => {
         console.log('From submitted data', data);
         const formData = new FormData();
         formData.append('email', data.email);
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://tranquil-beach-35378.herokuapp.com/addAdmin', {
             method: 'POST',
             body: formData
         })
