@@ -14,7 +14,6 @@ const Login = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [user, setUser] = useState({
-        isSignedIn: false,
         name: "",
         email: "",
         photo: "",
@@ -31,7 +30,6 @@ const Login = () => {
         .then(result => {
             const {displayName, email, photoURL} = result.user;
             const signedInUser = {
-                isSignedIn: true,
                 name: displayName,
                 email: email,
                 photo: photoURL
@@ -59,7 +57,7 @@ const Login = () => {
                         <img className="pr-3" style={{width: '50px'}} src={google} alt="icon"/>
                         Continue with Google
                     </button>
-                    <p>Don't have an account? <Link to="#">Create an account</Link></p>
+                    <p>Don't have an account? <Link onClick={handleSignIn} to="#">Create an account</Link></p>
                     <p className="text-danger">{user.error}</p>
                 </div>
             </div>

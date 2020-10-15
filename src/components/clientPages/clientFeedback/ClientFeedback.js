@@ -11,8 +11,9 @@ const ClientFeedback = () => {
         console.log('From submitted data', data);
         const formData = new FormData();
         formData.append('name', data.name);
-        formData.append('email', data.company);
-        formData.append('service', data.description);
+        formData.append('company', data.company);
+        formData.append('description', data.description);
+        formData.append('photo', loggedInUser.photo);
         fetch('http://localhost:5000/addFeedback', {
             method: 'POST',
             body: formData
