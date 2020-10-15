@@ -12,6 +12,7 @@ import ClientFeedback from './components/clientPages/clientFeedback/ClientFeedba
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
+import Dashboard from './components/dashboard/Dashboard';
 
 export const UserContext = createContext();
 
@@ -27,7 +28,10 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          {/* <Route path="/addAdmin">
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/addAdmin">
             <AddAdmin />
           </Route>
           <Route path="/addServices">
@@ -44,7 +48,10 @@ function App() {
           </Route>
           <Route path="/orderReview">
             <OrderReview />
-          </Route> */}
+          </Route>
+          {/* <PrivateRoute path="/dashboard">
+            <Dashboard />
+          </PrivateRoute>
           <PrivateRoute path="/addAdmin">
             <AddAdmin />
           </PrivateRoute>
@@ -62,7 +69,7 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/orderReview">
             <OrderReview />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <Route exact path="/">
             <Home />
           </Route>

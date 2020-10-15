@@ -8,7 +8,6 @@ const ClientFeedback = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const onSubmit = data => {
-        console.log('From submitted data', data);
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('company', data.company);
