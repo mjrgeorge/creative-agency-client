@@ -27,7 +27,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/addAdmin">
+          {/* <Route path="/addAdmin">
             <AddAdmin />
           </Route>
           <Route path="/addServices">
@@ -44,8 +44,8 @@ function App() {
           </Route>
           <Route path="/orderReview">
             <OrderReview />
-          </Route>
-          {/* <PrivateRoute path="/addAdmin">
+          </Route> */}
+          <PrivateRoute path="/addAdmin">
             <AddAdmin />
           </PrivateRoute>
           <PrivateRoute path="/addServices">
@@ -62,7 +62,7 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/orderReview">
             <OrderReview />
-          </PrivateRoute> */}
+          </PrivateRoute>
           <Route exact path="/">
             <Home />
           </Route>

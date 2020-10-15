@@ -12,7 +12,8 @@ const ClientOrder = () => {
     const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
 
-    const handleBlur = (e) => {
+    const handleChange = (e) => {
+        console.log(e.target.name, e.target.value);
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo);
@@ -23,7 +24,7 @@ const ClientOrder = () => {
         setFile(newFile);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         const formData = new FormData();
         formData.append('file', file);
         formData.append('name', info.name);
@@ -37,12 +38,25 @@ const ClientOrder = () => {
             body: formData
         })
             .then(response => response.json())
-            .then(data => {
-                console.log(data)
+            .then(result => {
+                if (result) {
+                    alert('Data added successfully')
+                    fieldReset();
+                }
             })
             .catch(error => {
                 console.error(error)
             })
+        e.preventDefault();
+    };
+
+    const fieldReset = () => {
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('service').value = '';
+        document.getElementById('details').value = '';
+        document.getElementById('price').value = '';
+        document.getElementById('file').value = '';
     };
 
     return (
@@ -56,23 +70,23 @@ const ClientOrder = () => {
                             <div className="row">
                                 <div className="col-md-7">
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="text" name="name" class="form-control" defaultValue={loggedInUser.name} placeholder="Your name / company's name" required/>
+                                        <input onChange={handleChange} type="text" name="name" id="name" class="form-control" defaultValue={loggedInUser.name} placeholder="Your name / company's name" required />
                                     </div>
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="email" email="email" class="form-control" defaultValue={loggedInUser.email} placeholder="Your email address" required/>
+                                        <input onChange={handleChange} type="email" name="email" id="email" class="form-control" defaultValue={loggedInUser.email} placeholder="Your email address" required />
                                     </div>
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="text" name="service" class="form-control" defaultValue={serviceName} placeholder="service" required/>
+                                        <input onChange={handleChange} type="text" name="service" id="service" class="form-control" defaultValue={serviceName} placeholder="service" required />
                                     </div>
                                     <div class="form-group">
-                                        <textarea onBlur={handleBlur} name="details" class="form-control" placeholder="Project details" rows="3" required></textarea>
+                                        <textarea onChange={handleChange} name="details" id="details" class="form-control" placeholder="Project details" rows="3" required></textarea>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
-                                            <input onBlur={handleBlur} type="text" name="price" class="form-control" placeholder="Price" required/>
+                                            <input onChange={handleChange} type="text" name="price" id="price" class="form-control" placeholder="Price" required />
                                         </div>
                                         <div class="col">
-                                            <input onChange={handleFileChange} type="file" class="form-control-file" required/>
+                                            <input onChange={handleFileChange} type="file" id="file" class="form-control-file" required />
                                         </div>
                                     </div>
                                 </div>

@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import ClientPages from '../ClientPages';
-import service3 from '../../../images/icons/service3.png';
-import service1 from '../../../images/icons/service1.png';
+import { useEffect } from 'react';
+import { UserContext } from '../../../App';
 
 const OrderReview = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [orderedService, setOrderedService] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/orderedService?email=' + loggedInUser.email)
+            .then(response => response.json())
+            .then(data => setOrderedService(data))
+            .catch(err => console.log(err))
+    }, []);
+
     return (
         <div className="container bg-light">
             <div className="row">
@@ -11,26 +20,20 @@ const OrderReview = () => {
                 <div className="col-md-10">
                     <h3 className="mt-5 ml-5 p-4">Order Review</h3>
                     <div className="row">
-                        <div className="col-md-6">
-                            <div className="services_card p-4">
-                                <div className="d-flex justify-content-between">
-                                    <img style={{ height: '50px' }} src={service3} alt="service3" />
-                                    <button className="btn btn-danger btn-sm">Pending</button>
+                        {
+                            orderedService.map(ordered =>
+                                <div className="col-md-6">
+                                    <div className="services_card p-4">
+                                        <div className="d-flex justify-content-between">
+                                            <img style={{ height: '50px' }} src={`data:image/png;base64,${ordered.image.img}`} alt="img" />
+                                            <button className="btn btn-danger btn-sm">Pending</button>
+                                        </div>
+                                        <h5 className="mt-3 mb-3">{ordered.service}</h5>
+                                        <p className="text-secondary">{ordered.details}</p>
+                                    </div>
                                 </div>
-                                <h5 className="mt-3 mb-3">Web Design</h5>
-                                <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus dignissimos ea ipsa ipsam eveniet. Sequi fuga maxime iure aliquam assumenda?</p>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="services_card p-4">
-                                <div className="d-flex justify-content-between">
-                                    <img style={{ height: '50px' }} src={service1} alt="service1" />
-                                    <button className="btn btn-success btn-sm">Done</button>
-                                </div>
-                                <h5 className="mt-3 mb-3">Web Design</h5>
-                                <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus dignissimos ea ipsa ipsam eveniet. Sequi fuga maxime iure aliquam assumenda?</p>
-                            </div>
-                        </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@ const AddServices = () => {
         setFile(newFile);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         const formData = new FormData();
         formData.append('file', file);
         formData.append('service', info.service);
@@ -28,12 +28,21 @@ const AddServices = () => {
             body: formData
         })
             .then(response => response.json())
-            .then(data => {
-                console.log(data)
+            .then(result => {
+                if (result) {
+                    fieldReset();
+                }
             })
             .catch(error => {
                 console.error(error)
             })
+        e.preventDefault();
+    };
+
+    const fieldReset = () => {
+        document.getElementById('service').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('file').value = '';
     };
 
     return (
@@ -48,17 +57,17 @@ const AddServices = () => {
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label>Service Title</label>
-                                        <input onBlur={handleBlur} type="text" name="service" class="form-control" placeholder="Enter Title" required/>
+                                        <input onBlur={handleBlur} type="text" name="service" id="service" class="form-control" placeholder="Enter Title" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea onBlur={handleBlur} name="description" class="form-control" placeholder="Enter Description" rows="3" required></textarea>
+                                        <textarea onBlur={handleBlur} name="description" id="description" class="form-control" placeholder="Enter Description" rows="3" required></textarea>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label>Icon</label>
-                                        <input onChange={handleFileChange} type="file" class="form-control-file" required/>
+                                        <input onChange={handleFileChange} type="file" id="file" class="form-control-file" required />
                                     </div>
                                 </div>
                             </div>

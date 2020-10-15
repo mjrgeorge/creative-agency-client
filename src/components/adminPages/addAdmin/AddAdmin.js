@@ -2,6 +2,7 @@ import React from 'react';
 import AdminPages from '../AdminPages';
 
 const AddAdmin = () => {
+    
     return (
         <div className="container bg-light">
             <div className="row">

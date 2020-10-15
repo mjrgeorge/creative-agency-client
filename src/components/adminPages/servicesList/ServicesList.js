@@ -30,7 +30,7 @@ const ServicesList = () => {
                         </div>
                         {
                             orders.map(order =>
-                                <div className="row mb-3 p-2">
+                                <div className="row mb-3 p-2" key={order._id}>
                                     <div className="col-md-2"><p>{order.name}</p></div>
                                     <div className="col-md-3"><p>{order.email}</p></div>
                                     <div className="col-md-2"><p>{order.service}</p></div>

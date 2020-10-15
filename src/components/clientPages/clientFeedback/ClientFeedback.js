@@ -52,10 +52,10 @@ const ClientFeedback = () => {
                             <div className="row">
                                 <div className="col-md-7">
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="text" name="name" id="name" class="form-control" placeholder="Your name" required/>
+                                        <input onBlur={handleBlur} type="text" name="name" id="name" class="form-control" placeholder="Your name" required />
                                     </div>
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="text" name="company" id="company" class="form-control" placeholder="Company's name Designation" required/>
+                                        <input onBlur={handleBlur} type="text" name="company" id="company" class="form-control" placeholder="Company's name Designation" required />
                                     </div>
                                     <div class="form-group">
                                         <textarea onBlur={handleBlur} name="description" id="description" class="form-control" placeholder="Description" rows="3" required></textarea>
