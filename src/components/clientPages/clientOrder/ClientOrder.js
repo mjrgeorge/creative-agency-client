@@ -62,24 +62,24 @@ const ClientOrder = () => {
                                 <div className="col-md-7">
                                     <div class="form-group">
                                         <input className="form-control" name="name" id="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your name / company's name" />
-                                        {errors.name && <span className="error">Name is required</span>}
+                                        {errors.name && <span className="error text-danger">Name is required</span>}
                                     </div>
                                     <div class="form-group">
                                         <input className="form-control" name="email" id="email" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Your email address" />
-                                        {errors.name && <span className="error">Email is required</span>}
+                                        {errors.name && <span className="error text-danger">Email is required</span>}
                                     </div>
                                     <div class="form-group">
                                         <input className="form-control" name="service" id="service" defaultValue={serviceName} ref={register({ required: true })} placeholder="service" />
-                                        {errors.name && <span className="error">Service is required</span>}
+                                        {errors.name && <span className="error text-danger">Service is required</span>}
                                     </div>
                                     <div class="form-group">
                                         <input className="form-control" name="details" id="details" ref={register({ required: true })} placeholder="Project details" />
-                                        {errors.name && <span className="error">Details is required</span>}
+                                        {errors.name && <span className="error text-danger">Details is required</span>}
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
                                             <input className="form-control" name="price" id="price" ref={register({ required: true })} placeholder="Price" />
-                                            {errors.name && <span className="error">Price is required</span>}
+                                            {errors.name && <span className="error text-danger">Price is required</span>}
                                         </div>
                                         <div class="col">
                                             <input onChange={handleFileChange} type="file" id="file" class="form-control-file" required />

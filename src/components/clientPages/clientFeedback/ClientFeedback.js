@@ -47,15 +47,15 @@ const ClientFeedback = () => {
                                 <div className="col-md-7">
                                     <div class="form-group">
                                         <input className="form-control" name="name" id="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your name / company's name" />
-                                        {errors.name && <span className="error">Name is required</span>}
+                                        {errors.name && <span className="error text-danger">Name is required</span>}
                                     </div>
                                     <div class="form-group">
                                         <input className="form-control" name="company" id="company" ref={register({ required: true })} placeholder="Company's name Designation" />
-                                        {errors.name && <span className="error">Company is required</span>}
+                                        {errors.name && <span className="error text-danger">Company is required</span>}
                                     </div>
                                     <div class="form-group">
-                                        <input className="form-control" name="description" id="description" ref={register({ required: true })} placeholder="Description" />
-                                        {errors.name && <span className="error">Description is required</span>}
+                                        <textarea className="form-control" name="description" id="description" ref={register({ required: true })} cols="30" rows="10" placeholder="Description"></textarea>
+                                        {errors.name && <span className="error text-danger">Description is required</span>}
                                     </div>
                                 </div>
                                 <div className="col-md-5">

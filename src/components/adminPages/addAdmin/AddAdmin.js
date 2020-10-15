@@ -42,7 +42,7 @@ const AddAdmin = () => {
                             <label>Email</label>
                             <div class="input-group mb-3 w-75">
                                 <input className="form-control" name="email" id="email" ref={register({ required: true })} placeholder="jon@gmail.com" />
-                                {errors.name && <span className="error">Email is required</span>}
+                                {errors.name && <span className="error text-danger">Email is required</span>}
                                 <div class="input-group-append">
                                     <button class="btn btn-success" type="submit">Submit</button>
                                 </div>

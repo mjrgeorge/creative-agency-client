@@ -57,17 +57,17 @@ const AddServices = () => {
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label>Service Title</label>
-                                        <input onBlur={handleBlur} type="text" name="service" id="service" class="form-control" placeholder="Enter Title" required />
+                                        <input onBlur={handleBlur} type="text" name="service" id="service" class="form-control" placeholder="Enter Title" />
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea onBlur={handleBlur} name="description" id="description" class="form-control" placeholder="Enter Description" rows="3" required></textarea>
+                                        <textarea onBlur={handleBlur} name="description" id="description" class="form-control" placeholder="Enter Description" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label>Icon</label>
-                                        <input onChange={handleFileChange} type="file" id="file" class="form-control-file" required />
+                                        <input onChange={handleFileChange} type="file" id="file" class="form-control-file" />
                                     </div>
                                 </div>
                             </div>
