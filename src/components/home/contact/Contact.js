@@ -4,7 +4,15 @@ import { useForm } from 'react-hook-form';
 const Contact = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
-        console.log('From submitted data', data);
+        fetch('http://localhost:5000/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+            })
     };
     return (
         <div style={{ backgroundColor: '#FBD062' }}>
