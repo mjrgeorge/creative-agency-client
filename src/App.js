@@ -71,7 +71,7 @@ function App() {
             <OrderReview />
           </PrivateRoute> */}
           <Route exact path="/">
-            <Home />
+            <Home/>
           </Route>
           <Route path="*">
             <NotMatch />
