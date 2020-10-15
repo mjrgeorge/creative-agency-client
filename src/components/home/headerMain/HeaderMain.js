@@ -10,7 +10,7 @@ const HeaderMain = () => {
                 <div className="col-md-4">
                     <h1 className="my-4 mr-5">Let’s Grow Your Brand To The Next Level</h1>
                     <p className="my-4 mr-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, nesciunt officiis architecto animi nisi vitae!</p>
-                    <Link to="/orderReview" className="text-decoration-none">
+                    <Link to="/dashboard" className="text-decoration-none">
                         <button className="btn btn-dark px-5">Hire us</button>
                     </Link>
                 </div>
