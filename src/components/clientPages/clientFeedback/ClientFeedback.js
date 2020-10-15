@@ -1,38 +1,32 @@
 import React, { useContext } from 'react';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import ClientPages from '../ClientPages';
 
 const ClientFeedback = () => {
+    const { register, handleSubmit, watch, errors } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    const [info, setInfo] = useState({
-        name: '',
-        company: '',
-        description: '',
-        photo: loggedInUser.photo,
-    });
-
-    const handleBlur = (e) => {
-        const newInfo = { ...info };
-        newInfo[e.target.name] = e.target.value;
-        setInfo(newInfo);
-    };
-
-    const handleSubmit = (e) => {
+    const onSubmit = data => {
+        console.log('From submitted data', data);
+        const formData = new FormData();
+        formData.append('name', data.name);
+        formData.append('email', data.company);
+        formData.append('service', data.description);
         fetch('http://localhost:5000/addFeedback', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(info)
+            body: formData
         })
             .then(response => response.json())
             .then(result => {
                 if (result) {
+                    alert('Data added successfully')
                     fieldReset();
                 }
             })
-            .catch(err => console.log(err));
-        e.preventDefault();
+            .catch(error => {
+                console.error(error)
+            })
     };
 
     const fieldReset = () => {
@@ -48,17 +42,20 @@ const ClientFeedback = () => {
                 <div className="col-md-10">
                     <h3 className="mt-5 ml-5 p-4">Feedback</h3>
                     <div className="bg-white p-5 rounded">
-                        <form onSubmit={handleSubmit}>
+                        <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
                                 <div className="col-md-7">
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="text" name="name" id="name" class="form-control" placeholder="Your name" required />
+                                        <input className="form-control" name="name" id="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your name / company's name" />
+                                        {errors.name && <span className="error">Name is required</span>}
                                     </div>
                                     <div class="form-group">
-                                        <input onBlur={handleBlur} type="text" name="company" id="company" class="form-control" placeholder="Company's name Designation" required />
+                                        <input className="form-control" name="company" id="company" ref={register({ required: true })} placeholder="Company's name Designation" />
+                                        {errors.name && <span className="error">Company is required</span>}
                                     </div>
                                     <div class="form-group">
-                                        <textarea onBlur={handleBlur} name="description" id="description" class="form-control" placeholder="Description" rows="3" required></textarea>
+                                        <input className="form-control" name="description" id="description" ref={register({ required: true })} placeholder="Description" />
+                                        {errors.name && <span className="error">Description is required</span>}
                                     </div>
                                 </div>
                                 <div className="col-md-5">

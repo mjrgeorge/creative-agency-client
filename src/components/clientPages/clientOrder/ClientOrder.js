@@ -18,7 +18,6 @@ const ClientOrder = () => {
     };
 
     const onSubmit = data => {
-        console.log('From submitted data', data);
         const formData = new FormData();
         formData.append('file', file);
         formData.append('name', data.name);
