@@ -13,6 +13,7 @@ import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
+import Animation from './components/animation/Animation';
 
 export const UserContext = createContext();
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
+        <Animation/>
         <Switch>
           <Route path="/home">
             <Home />
