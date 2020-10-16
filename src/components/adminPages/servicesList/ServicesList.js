@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import AdminPages from '../AdminPages';
+import loading from '../../../images/loading.gif';
 
 const ServicesList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -14,6 +14,7 @@ const ServicesList = () => {
             .then(data => setOrders(data))
             .catch(err => console.log(err))
     }, []);
+    console.log(orders);
 
     return (
         <div className="container bg-light">
@@ -25,37 +26,41 @@ const ServicesList = () => {
                         <img style={{ width: '30px', height: '30px' }} className="rounded-circle ml-3" src={loggedInUser.photo} alt="User" />
                     </div>
                     <h3 className="ml-5 pl-5 pb-5">Services List</h3>
-                    <div className="bg-white p-5 rounded">
-                        <div className="row bg-light mb-3 p-2">
-                            <div className="col-md-2"><h5>Name</h5></div>
-                            <div className="col-md-3"><h5>Email ID</h5></div>
-                            <div className="col-md-2"><h5>Services</h5></div>
-                            <div className="col-md-3"><h5>Project Details</h5></div>
-                            <div className="col-md-2"><h5>Status</h5></div>
+                    {
+                        orders.length===0 ?
+                        <div>
+                            <img className="rounded mx-auto d-block p-5" src={loading} alt="Loading..."/>
                         </div>
-                        {
-                            orders.map(order =>
-                                <div className="row mb-3 p-2" key={order._id}>
-                                    <div className="col-md-2"><p>{order.name}</p></div>
-                                    <div className="col-md-3"><p>{order.email}</p></div>
-                                    <div className="col-md-2"><p>{order.service}</p></div>
-                                    <div className="col-md-3"><p>{order.details}</p></div>
-                                    <div className="col-md-2">
-                                        <div class="dropdown">
-                                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Dropdown button
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <Link class="dropdown-item" to="#">Done</Link>
-                                                <Link class="dropdown-item" to="#">Ongoing</Link>
-                                                <Link class="dropdown-item" to="#">Pending</Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        }
+                        :
+                        <div className="bg-white p-4 rounded">
+                        <div className="table-responsive-sm">
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Services</th>
+                                        <th scope="col">Project Details</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                {
+                                    orders.map(order =>
+                                        <tbody key={order._id}>
+                                            <tr>
+                                                <td>{order.name}</td>
+                                                <td>{order.email}</td>
+                                                <td>{order.service}</td>
+                                                <td>{order.details}</td>
+                                                <td>Dropdown</td>
+                                            </tr>
+                                        </tbody>
+                                    )
+                                }
+                            </table>
+                        </div>
                     </div>
+                    }
                 </div>
             </div>
         </div>
