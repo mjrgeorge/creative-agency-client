@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../../../App';
 import AdminPages from '../AdminPages';
 
 const AddServices = () => {
-
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
 
@@ -50,7 +51,11 @@ const AddServices = () => {
             <div className="row">
                 <AdminPages />
                 <div className="col-md-10">
-                    <h3 className="mt-5 ml-5 p-4">Add Service</h3>
+                    <div className="d-flex justify-content-end pt-3 pr-3">
+                        <p>{loggedInUser.name}</p>
+                        <img style={{ width: '30px', height: '30px' }} className="rounded-circle ml-3" src={loggedInUser.photo} alt="User" />
+                    </div>
+                    <h3 className="ml-5 pl-5 pb-5">Add Services</h3>
                     <div className="bg-white p-5 rounded">
                         <form onSubmit={handleSubmit}>
                             <div className="row">

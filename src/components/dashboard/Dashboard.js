@@ -16,10 +16,9 @@ const Dashboard = () => {
             .then(data => setIsAdmin(data))
     }, []);
 
-    console.log('testing', isAdmin);
-
     return (
         <div>
+
             {
                 isAdmin ? <ServicesList /> : <ClientOrder />
             }

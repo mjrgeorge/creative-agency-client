@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 import AdminPages from '../AdminPages';
 
 const AddAdmin = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
 
     const onSubmit = data => {
@@ -34,7 +36,11 @@ const AddAdmin = () => {
             <div className="row">
                 <AdminPages />
                 <div className="col-md-10">
-                    <h3 className="mt-5 ml-5 p-4">Add Admin</h3>
+                    <div className="d-flex justify-content-end pt-3 pr-3">
+                        <p>{loggedInUser.name}</p>
+                        <img style={{ width: '30px', height: '30px' }} className="rounded-circle ml-3" src={loggedInUser.photo} alt="User" />
+                    </div>
+                    <h3 className="ml-5 pl-5 pb-5">Add Admin</h3>
                     <div className="bg-white p-5 rounded">
                         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
                             <label>Email</label>

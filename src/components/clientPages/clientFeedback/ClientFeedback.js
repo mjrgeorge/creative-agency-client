@@ -40,7 +40,11 @@ const ClientFeedback = () => {
             <div className="row">
                 <ClientPages />
                 <div className="col-md-10">
-                    <h3 className="mt-5 ml-5 p-4">Feedback</h3>
+                    <div className="d-flex justify-content-end pt-3 pr-3">
+                        <p>{loggedInUser.name}</p>
+                        <img style={{ width: '30px', height: '30px' }} className="rounded-circle ml-3" src={loggedInUser.photo} alt="User" />
+                    </div>
+                    <h3 className="ml-5 pl-5 pb-5">Feedback</h3>
                     <div className="bg-white p-5 rounded">
                         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">

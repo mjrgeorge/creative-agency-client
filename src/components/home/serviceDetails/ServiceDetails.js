@@ -7,7 +7,7 @@ const ServiceDetails = ({ service }) => {
     const props = useSpring({
         opacity: 1,
         from: { opacity: 0 },
-        transition: '2s'
+        transition: '3s'
     })
 
     return (
