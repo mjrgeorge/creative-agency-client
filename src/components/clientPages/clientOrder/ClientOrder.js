@@ -54,7 +54,7 @@ const ClientOrder = () => {
         <div className="container bg-light">
             <div className="row">
                 <ClientPages />
-                <div className="col-md-10">
+                <section className="col-md-10">
                     <div className="d-flex justify-content-end pt-3 pr-3">
                         <p>{loggedInUser.name}</p>
                         <img style={{ width: '30px', height: '30px' }} className="rounded-circle ml-3" src={loggedInUser.photo} alt="User" />
@@ -98,7 +98,7 @@ const ClientOrder = () => {
                             </div>
                         </form>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     );

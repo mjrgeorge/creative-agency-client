@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ClientPages = () => {
     return (
-        <div className="col-md-2">
+        <section className="col-md-2">
             <div className="ml-1 mt-5">
                 <Link to="/home">
                     <img style={{ height: '70px' }} src={logo} alt="logo" />
@@ -19,7 +19,7 @@ const ClientPages = () => {
             <div className="m-3 p-2">
                 <Link to="/clientFeedback" className="text-decoration-none text-dark"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-left-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v11.586l2-2A2 2 0 0 1 4.414 11H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg> Review</Link>
             </div>
-        </div>
+        </section>
     );
 };
 

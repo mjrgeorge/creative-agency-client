@@ -44,7 +44,7 @@ const Login = () => {
           });
     };
     return (
-        <div className="container bg-light pt-5">
+        <section className="container bg-light pt-5">
             <Link to="/home">
                 <div style={{ height:'80px'}} className="d-flex justify-content-center">
                     <img className="w-25" src={logo} alt="log"/>
@@ -61,7 +61,7 @@ const Login = () => {
                     <p className="text-danger">{user.error}</p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

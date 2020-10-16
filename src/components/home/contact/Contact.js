@@ -15,7 +15,7 @@ const Contact = () => {
             })
     };
     return (
-        <div style={{ backgroundColor: '#FBD062' }}>
+        <section style={{ backgroundColor: '#FBD062' }}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 p-5">
@@ -43,7 +43,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

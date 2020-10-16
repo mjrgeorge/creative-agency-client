@@ -17,12 +17,12 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div>
+        <section>
 
             {
                 isAdmin ? <ServicesList /> : <ClientOrder />
             }
-        </div>
+        </section>
     );
 };
 

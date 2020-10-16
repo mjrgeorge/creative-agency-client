@@ -5,12 +5,12 @@ import NavBar from '../navBar/NavBar';
 
 const Header = () => {
     return (
-        <div className="header_container">
+        <header className="header_container">
             <div className="header_sub_container">
                 <NavBar />
                 <HeaderMain />
             </div>
-        </div>
+        </header>
     );
 };
 

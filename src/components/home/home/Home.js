@@ -9,7 +9,7 @@ import Services from '../services/Services';
 
 const Home = () => {
     return (
-        <div>
+        <section>
             <Header/>
             <ClientLogo/>
             <Services/>
@@ -17,7 +17,7 @@ const Home = () => {
             <FeedBacks/>
             <Contact/>
             <Footer/>
-        </div>
+        </section>
     );
 };
 
