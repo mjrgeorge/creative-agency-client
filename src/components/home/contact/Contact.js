@@ -11,9 +11,16 @@ const Contact = () => {
         })
             .then(response => response.json())
             .then(result => {
-                console.log(result);
+                alert('Data Added Successfully')
+                fieldReset();
             })
     };
+    const fieldReset = () => {
+        document.getElementById('email').value = '';
+        document.getElementById('name').value = '';
+        document.getElementById('message').value = '';
+    };
+
     return (
         <section style={{ backgroundColor: '#FBD062' }}>
             <div className="container">
@@ -25,15 +32,15 @@ const Contact = () => {
                     <div className="col-md-6 mt-5 p-5">
                         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-group">
-                                <input className="form-control" type="email" name="email" ref={register({ required: true })} placeholder="Your email address" />
+                                <input className="form-control" type="email" name="email" id="email" ref={register({ required: true })} placeholder="Your email address" />
                                 {errors.name && <span className="error text-danger">Email is required</span>}
                             </div>
                             <div className="form-group">
-                                <input className="form-control" type="text" name="name" ref={register({ required: true })} placeholder="Your name / company's name" />
+                                <input className="form-control" type="text" name="name" id="name" ref={register({ required: true })} placeholder="Your name / company's name" />
                                 {errors.name && <span className="error text-danger">Email is required</span>}
                             </div>
                             <div className="form-group">
-                                <textarea className="form-control" name="message" ref={register({ required: true })} cols="30" rows="10" placeholder="Your message"></textarea>
+                                <textarea className="form-control" name="message" id="message" ref={register({ required: true })} cols="30" rows="10" placeholder="Your message"></textarea>
                                 {errors.name && <span className="error text-danger">Message is required</span>}
                             </div>
                             <div className="form-group">

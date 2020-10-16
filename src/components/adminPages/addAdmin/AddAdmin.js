@@ -18,7 +18,7 @@ const AddAdmin = () => {
             .then(response => response.json())
             .then(result => {
                 if (result) {
-                    alert('Data added successfully')
+                    alert('Data Added Successfully')
                     fieldReset();
                 }
             })

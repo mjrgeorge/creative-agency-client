@@ -31,6 +31,7 @@ const AddServices = () => {
             .then(response => response.json())
             .then(result => {
                 if (result) {
+                    alert('Data Added Successfully')
                     fieldReset();
                 }
             })
