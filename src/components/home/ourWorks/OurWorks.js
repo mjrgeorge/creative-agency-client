@@ -1,5 +1,4 @@
 import React from 'react';
-import './OurWorks.css';
 import carousel1 from '../../../images/carousel-1.png';
 import carousel2 from '../../../images/carousel-2.png';
 import carousel3 from '../../../images/carousel-3.png';
@@ -20,10 +19,10 @@ const OurWorks = () => {
                             <img style={{height:'300px', width:'50%'}} src={carousel1} className="img-fluid" alt="carousel1" />
                         </div>
                         <div className="carousel-item">
-                            <img style={{height:'300px', width:'50%'}} src={carousel2} className="img-fluid" alt="carousel1" />
+                            <img style={{height:'300px', width:'50%'}} src={carousel2} className="img-fluid" alt="carousel2" />
                         </div>
                         <div className="carousel-item">
-                            <img style={{height:'300px', width:'50%'}} src={carousel3} className="img-fluid" alt="carousel1" />
+                            <img style={{height:'300px', width:'50%'}} src={carousel3} className="img-fluid" alt="carousel3" />
                         </div>
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

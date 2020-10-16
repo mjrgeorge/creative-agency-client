@@ -18,7 +18,6 @@ const Dashboard = () => {
 
     return (
         <section>
-
             {
                 isAdmin ? <ServicesList /> : <ClientOrder />
             }

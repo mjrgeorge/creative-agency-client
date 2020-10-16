@@ -61,24 +61,24 @@ const AddServices = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <label>Service Title</label>
-                                        <input onBlur={handleBlur} type="text" name="service" id="service" class="form-control" placeholder="Enter Title" />
+                                        <input onBlur={handleBlur} type="text" name="service" id="service" className="form-control" placeholder="Enter Title" />
                                     </div>
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <label>Description</label>
-                                        <textarea onBlur={handleBlur} name="description" id="description" class="form-control" placeholder="Enter Description" rows="3"></textarea>
+                                        <textarea onBlur={handleBlur} name="description" id="description" className="form-control" placeholder="Enter Description" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <label>Icon</label>
-                                        <input onChange={handleFileChange} type="file" id="file" class="form-control-file" />
+                                        <input onChange={handleFileChange} type="file" id="file" className="form-control-file" />
                                     </div>
                                 </div>
                             </div>
                             <div className="text-right">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" className="btn btn-success">Submit</button>
                             </div>
                         </form>
                     </div>

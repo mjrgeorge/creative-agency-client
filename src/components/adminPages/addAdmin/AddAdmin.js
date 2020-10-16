@@ -6,7 +6,6 @@ import AdminPages from '../AdminPages';
 const AddAdmin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
-
     const onSubmit = data => {
         console.log('From submitted data', data);
         const formData = new FormData();
@@ -44,11 +43,11 @@ const AddAdmin = () => {
                     <div className="bg-white p-5 rounded">
                         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
                             <label>Email</label>
-                            <div class="input-group mb-3 w-75">
+                            <div className="input-group mb-3 w-75">
                                 <input className="form-control" name="email" id="email" ref={register({ required: true })} placeholder="jon@gmail.com" />
                                 {errors.name && <span className="error text-danger">Email is required</span>}
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">Submit</button>
+                                <div className="input-group-append">
+                                    <button className="btn btn-success" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>

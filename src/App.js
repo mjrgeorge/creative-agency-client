@@ -13,7 +13,6 @@ import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
-
 export const UserContext = createContext();
 
 function App() {
@@ -28,28 +27,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/addAdmin">
-            <AddAdmin />
-          </Route>
-          <Route path="/addServices">
-            <AddServices />
-          </Route>
-          <Route path="/servicesList">
-            <ServicesList />
-          </Route>
-          <Route path="/clientOrder/:serviceName">
-            <ClientOrder />
-          </Route>
-          <Route path="/clientFeedback">
-            <ClientFeedback />
-          </Route>
-          <Route path="/orderReview">
-            <OrderReview />
-          </Route>
-          {/* <PrivateRoute path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard />
           </PrivateRoute>
           <PrivateRoute path="/addAdmin">
@@ -69,9 +47,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/orderReview">
             <OrderReview />
-          </PrivateRoute> */}
+          </PrivateRoute>
           <Route exact path="/">
-            <Home/>
+            <Home />
           </Route>
           <Route path="*">
             <NotMatch />

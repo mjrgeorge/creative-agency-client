@@ -1,5 +1,4 @@
 import React from 'react';
-import './HeaderMain.css';
 import Frame from '../../../images/logos/Frame.png';
 import { Link } from 'react-router-dom';
 

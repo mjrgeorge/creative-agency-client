@@ -49,15 +49,15 @@ const ClientFeedback = () => {
                         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
                                 <div className="col-md-7">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <input className="form-control" name="name" id="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your name / company's name" />
                                         {errors.name && <span className="error text-danger">Name is required</span>}
                                     </div>
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <input className="form-control" name="company" id="company" ref={register({ required: true })} placeholder="Company's name Designation" />
                                         {errors.name && <span className="error text-danger">Company is required</span>}
                                     </div>
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <textarea className="form-control" name="description" id="description" ref={register({ required: true })} cols="30" rows="10" placeholder="Description"></textarea>
                                         {errors.name && <span className="error text-danger">Description is required</span>}
                                     </div>
@@ -66,7 +66,7 @@ const ClientFeedback = () => {
                                 </div>
                             </div>
                             <div className="text-left mt-2">
-                                <button type="submit" class="btn btn-dark">Submit</button>
+                                <button type="submit" className="btn btn-dark">Submit</button>
                             </div>
                         </form>
                     </div>

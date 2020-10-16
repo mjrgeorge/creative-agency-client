@@ -7,11 +7,9 @@ import "firebase/auth";
 import firebaseConfig from './firebaseConfig';
 import { UserContext } from '../../App';
 import { useState } from 'react';
-
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [user, setUser] = useState({
         name: "",
@@ -19,11 +17,9 @@ const Login = () => {
         photo: "",
         error: "",
     });
-
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/dashboard" } };
-
     const provider = new firebase.auth.GoogleAuthProvider();
     const handleSignIn =()=>{
         firebase.auth().signInWithPopup(provider)
@@ -43,6 +39,7 @@ const Login = () => {
             setUser({error:errorMessage});
           });
     };
+    
     return (
         <section className="container bg-light pt-5">
             <Link to="/home">
@@ -53,7 +50,7 @@ const Login = () => {
             <div className="d-flex justify-content-center">
                 <div className="m-5 p-5 text-center" style={{width: '50%', border: '3px solid lightGray', borderRadius: '5px'}}>
                     <h2>Login With</h2>
-                    <button onClick={handleSignIn} className="btn btn-outline-dark rounded-pill p-2 mt-4 mb-4 btn-block">
+                    <button onClick={handleSignIn} className="btn btn-outline-dark rounded-pill btn-lg-block p-2 mt-4 mb-4">
                         <img className="pr-3" style={{width: '50px'}} src={google} alt="icon"/>
                         Continue with Google
                     </button>

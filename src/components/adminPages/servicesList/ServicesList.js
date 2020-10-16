@@ -14,7 +14,6 @@ const ServicesList = () => {
             .then(data => setOrders(data))
             .catch(err => console.log(err))
     }, []);
-    console.log(orders);
 
     return (
         <div className="container bg-light">
