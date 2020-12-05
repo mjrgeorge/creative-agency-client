@@ -7,7 +7,6 @@ const AddAdmin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
-        console.log('From submitted data', data);
         const formData = new FormData();
         formData.append('email', data.email);
         fetch('https://tranquil-beach-35378.herokuapp.com/addAdmin', {

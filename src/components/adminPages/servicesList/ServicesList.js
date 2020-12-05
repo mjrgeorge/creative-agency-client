@@ -52,19 +52,11 @@ const ServicesList = () => {
                                                         <td>{order.service}</td>
                                                         <td>{order.details}</td>
                                                         <td>
-                                                            <div class="d-flex">
-                                                                <div class="btn-group">
-                                                                    <button type="button" class="btn btn-white">Pending</button>
-                                                                    <button type="button" class="btn btn-white dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                    </button>
-                                                                    <div style={{ cursor: "pointer" }} class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                                                                        <span className="dropdown-item">Pending</span>
-                                                                        <span className="dropdown-item">Ongoing</span>
-                                                                        <span className="dropdown-item">Done</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <select>
+                                                                <option selected={order.status == "Pending"} value="Pending">Pending</option>
+                                                                <option selected={order.status == "On Going"} value="On Going">On Going</option>
+                                                                <option selected={order.status == "Done"} value="Done">Done</option>
+                                                            </select>
                                                         </td>
                                                     </tr>
                                                 </tbody>

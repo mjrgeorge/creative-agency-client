@@ -30,7 +30,7 @@ const OrderReview = () => {
                                     <div className="services_card p-4">
                                         <div className="d-flex justify-content-between">
                                             <img className="mx-3 rounded-circle" style={{ height: '50px' }} src={`data:image/png;base64,${ordered.image.img}`} alt="img" />
-                                            <button className="btn btn-danger btn-sm">Pending</button>
+                                            <button className="btn btn-danger btn-sm">{ordered.status}</button>
                                         </div>
                                         <h5 className="mt-3 mb-3">{ordered.service}</h5>
                                         <p className="text-secondary">{ordered.details}</p>

@@ -4,8 +4,7 @@ import ServicesList from '../adminPages/servicesList/ServicesList';
 import ClientOrder from '../clientPages/clientOrder/ClientOrder';
 
 const Dashboard = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [isAdmin, setIsAdmin] = useState('');
+    const [loggedInUser, setLoggedInUser, isAdmin, setIsAdmin] = useContext(UserContext);
     useEffect(() => {
         fetch('https://tranquil-beach-35378.herokuapp.com/isAdmin', {
             method: 'POST',
