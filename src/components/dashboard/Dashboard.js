@@ -6,7 +6,7 @@ import ClientOrder from '../clientPages/clientOrder/ClientOrder';
 const Dashboard = () => {
     const [loggedInUser, setLoggedInUser, isAdmin, setIsAdmin] = useContext(UserContext);
     useEffect(() => {
-        fetch('https://tranquil-beach-35378.herokuapp.com/isAdmin', {
+        fetch('https://afternoon-plains-00166.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({email: loggedInUser.email})

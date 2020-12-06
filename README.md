@@ -2,7 +2,7 @@
 
 A responsive IT Service Seller web application.
 
-[Live Preview](https://creative-agency-client.web.app/) | [Live API Server](https://tranquil-beach-35378.herokuapp.com/)
+[Live Preview](https://creative-agency-client.web.app/) | [Live API Server](https://afternoon-plains-00166.herokuapp.com/)
 
 ## Feature
 

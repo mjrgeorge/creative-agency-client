@@ -9,7 +9,7 @@ const AddAdmin = () => {
     const onSubmit = data => {
         const formData = new FormData();
         formData.append('email', data.email);
-        fetch('https://tranquil-beach-35378.herokuapp.com/addAdmin', {
+        fetch('https://afternoon-plains-00166.herokuapp.com/addAdmin', {
             method: 'POST',
             body: formData
         })

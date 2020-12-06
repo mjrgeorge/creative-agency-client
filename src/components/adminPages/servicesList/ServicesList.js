@@ -8,12 +8,33 @@ import loading from '../../../images/loading.gif';
 const ServicesList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [orders, setOrders] = useState([]);
+    const [selectOrder, setSelectOrder] = useState({})
     useEffect(() => {
-        fetch('https://tranquil-beach-35378.herokuapp.com/orders')
+        fetch('https://afternoon-plains-00166.herokuapp.com/orders')
             .then(response => response.json())
             .then(data => setOrders(data))
             .catch(err => console.log(err))
-    }, []);
+    }, [orders]);
+
+    const updateStatus = (status) => {
+        const data = { _id: selectOrder._id, status };
+        fetch(
+            `https://afternoon-plains-00166.herokuapp.com/updateOrderStatus/${data._id}`,
+            {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }
+        )
+            .then((res) => res.json())
+            .then((result) => {
+                if (result) {
+                    alert("Update Successfully Completed")
+                }
+            });
+    };
 
     return (
         <div className="container bg-light">
@@ -52,10 +73,22 @@ const ServicesList = () => {
                                                         <td>{order.service}</td>
                                                         <td>{order.details}</td>
                                                         <td>
-                                                            <select>
-                                                                <option selected={order.status == "Pending"} value="Pending">Pending</option>
-                                                                <option selected={order.status == "On Going"} value="On Going">On Going</option>
-                                                                <option selected={order.status == "Done"} value="Done">Done</option>
+                                                            <select
+                                                                onClick={() => setSelectOrder(order)}
+                                                                onChange={(e) => updateStatus(e.target.value)}
+                                                                className={
+                                                                    order.status=="Pending" 
+                                                                    ?"btn btn-danger"
+                                                                    :order.status=="On Going" 
+                                                                    ?"btn btn-warning"
+                                                                    :order.status=="Done" 
+                                                                    ?"btn btn-success"
+                                                                    :"btn btn-light"
+                                                                }
+                                                            >
+                                                                <option selected={order.status == "Pending"} className="bg-white text-dark">Pending</option>
+                                                                <option selected={order.status == "On Going"} className="bg-white text-dark">On Going</option>
+                                                                <option selected={order.status == "Done"} className="bg-white text-dark">Done</option>
                                                             </select>
                                                         </td>
                                                     </tr>

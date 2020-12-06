@@ -25,7 +25,7 @@ const ClientOrder = () => {
         formData.append('details', data.details);
         formData.append('price', data.price);
         formData.append('status', 'Pending');
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://afternoon-plains-00166.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })

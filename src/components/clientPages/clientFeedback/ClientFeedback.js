@@ -13,7 +13,7 @@ const ClientFeedback = () => {
         formData.append('company', data.company);
         formData.append('description', data.description);
         formData.append('photo', loggedInUser.photo);
-        fetch('https://tranquil-beach-35378.herokuapp.com/addFeedback', {
+        fetch('https://afternoon-plains-00166.herokuapp.com/addFeedback', {
             method: 'POST',
             body: formData
         })

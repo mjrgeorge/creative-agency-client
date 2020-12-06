@@ -7,7 +7,7 @@ const OrderReview = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [orderedService, setOrderedService] = useState([]);
     useEffect(() => {
-        fetch('https://tranquil-beach-35378.herokuapp.com/orderedService?email=' + loggedInUser.email)
+        fetch('https://afternoon-plains-00166.herokuapp.com/orderedService?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setOrderedService(data))
             .catch(err => console.log(err))
@@ -29,8 +29,19 @@ const OrderReview = () => {
                                 <div className="col-md-6">
                                     <div className="services_card p-4">
                                         <div className="d-flex justify-content-between">
-                                            <img className="mx-3 rounded-circle" style={{ height: '50px' }} src={`data:image/png;base64,${ordered.image.img}`} alt="img" />
-                                            <button className="btn btn-danger btn-sm">{ordered.status}</button>
+                                            <img className="mx-3 img-fluid rounded" style={{ height: '50px' }} src={`data:image/png;base64,${ordered.image.img}`} alt="img" />
+                                            <button 
+                                            className={
+                                                ordered.status=="Pending" 
+                                                ?"btn btn-danger"
+                                                :ordered.status=="On Going" 
+                                                ?"btn btn-warning"
+                                                :ordered.status=="Done" 
+                                                ?"btn btn-success"
+                                                :"btn btn-light"
+                                            }>
+                                            {ordered.status}
+                                            </button>
                                         </div>
                                         <h5 className="mt-3 mb-3">{ordered.service}</h5>
                                         <p className="text-secondary">{ordered.details}</p>
